@@ -1,0 +1,10 @@
+git+https://github.com/riga/law.git@master
+luigi
+requests
+ipython
+flake8
+flake8-commas
+flake8-quotes
+
+# for crab -.-
+git+https://github.com/PythonCharmers/python-future.git

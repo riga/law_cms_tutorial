@@ -105,17 +105,13 @@ class CrabWorkflow(law.cms.CrabWorkflow):
 
         return reqs
 
-    def crab_job_config(self, config, submit_jobs):
+    def crab_job_config(self, config, job_num, branches):
         # include the wlcg specific tools script in the input sandbox
         config.input_files["wlcg_tools"] = law.JobInputFile(
             law.util.law_src_path("contrib/wlcg/scripts/law_wlcg_tools.sh"),
             copy=False,
             render=False,
         )
-
-        # JobType.sendPythonFolder has been "deprecated"
-        # (actually not really deprecated, as having it in the config immediately raises an error)
-        del config.crab.JobType["sendPythonFolder"]
 
         # customize memory
         if self.crab_memory > 0:
